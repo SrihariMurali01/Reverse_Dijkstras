@@ -36,3 +36,5 @@ class Runner:
                         shortest_path[prev_node] = shortest_path[current_node] + [prev_node]
 
         return shortest_path[source]
+        # Can also be used to return the shortest path from other nodes to destination node also
+
