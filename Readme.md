@@ -36,3 +36,17 @@ It utilizes a cost matrix and an iterative approach.
             - *Update shortest_path[prev_node] by copying shortest_path[current_node] and appending prev_node.*
 7. Return shortest_path[source] as the shortest path from source to other nodes.
 
+##### <u>_Add This code in runner class to see the output of the algorithm:_</u>
+
+```python
+a = [[0, 7, 12, 0, 0, 0],
+     [0, 0, 2, 9, 0, 0],
+     [0, 0, 0, 0, 10, 0],
+     [0, 0, 0, 0, 0, 1],
+     [0, 0, 0, 4, 0, 0],
+     [0, 0, 0, 0, 0, 0]]
+
+ob = Runner(a)
+res = ob.find_shortest_path(0, 5)
+print(res)
+
