@@ -15,7 +15,7 @@ class Runner:
         shortest_distance[destination] = 0
         shortest_path[destination] = [destination]
 
-        for _ in range(num_nodes - 1):
+        for _ in range(num_nodes - 2):
             min_distance = sys.maxsize
             current_node = None
             for node in range(num_nodes):
