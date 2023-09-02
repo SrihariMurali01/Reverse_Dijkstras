@@ -7,6 +7,11 @@ class Runner:
         self.cost_matrix = cost_matrix
 
     def find_shortest_path(self, source, destination):
+
+        # Check if source and destination nodes are within valid range
+        if source < 0 or source >= len(self.cost_matrix) or destination < 0 or destination >= len(self.cost_matrix):
+            return [None, None]  # Return a special value to indicate invalid input
+
         num_nodes = len(self.cost_matrix)
         visited = [False] * num_nodes
         shortest_distance = [sys.maxsize] * num_nodes
@@ -34,7 +39,8 @@ class Runner:
                     if new_distance < shortest_distance[prev_node]:
                         shortest_distance[prev_node] = new_distance
                         shortest_path[prev_node] = shortest_path[current_node] + [prev_node]
-
+        if shortest_path[source] == [] and shortest_distance[source] == sys.maxsize:
+            return [None, None]
         return [shortest_path[source][::-1], shortest_distance[source]]
         # Can also be used to return the shortest path from other nodes to destination node also
         # Now returns a list containing the shortest path with the shortest cost from source to destination node

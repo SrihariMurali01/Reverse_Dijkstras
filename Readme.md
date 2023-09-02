@@ -60,7 +60,7 @@ print(res)
 #### _The Cost matrix for the above given data, for reference purposes._
 <img src="https://www.geeksforgeeks.org/wp-content/uploads/Fig-11.jpg">
 
-#### For negative-weighted graphs (make sure to edit the code)
+#### _For negative-weighted graphs (make sure to edit the code)_
 
 ```python
 a = [[0, -1, 0, 3],
