@@ -29,7 +29,7 @@ class Runner:
             visited[current_node] = True
 
             for prev_node in range(num_nodes):
-                if self.cost_matrix[prev_node][current_node] > 0: # Can be commented for negative-weighted graphs only.
+                if self.cost_matrix[prev_node][current_node] > 0:  # Can be commented for negative-weighted graphs only.
                     new_distance = shortest_distance[current_node] + self.cost_matrix[prev_node][current_node]
                     if new_distance < shortest_distance[prev_node]:
                         shortest_distance[prev_node] = new_distance
