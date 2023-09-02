@@ -5,6 +5,7 @@ It utilizes a cost matrix and an iterative approach.
 >**The algorithm finds the shortest path using a reversed technique, where we backtrack the shortest paths from the destination node to the source node.
 >It can also be modified at the return statement to find the shortest paths in the "destination" perspective. The algortihm can also be considered as a mix of Floyd's and Dijkstra's Shortest Parth Finding algorithms.**
 
+> The algorithm works for unidirectional, bidirectional, multistage, and negative weighted graphs. 
 ### <u>Algorithm :</u>
 #### Input:
 - <u>cost_matrix</u>: 2D matrix representing edge costs between nodes
