@@ -34,7 +34,7 @@ def generate_cost_matrix(size, case_type):
 def main():
     iterations = int(input('Enter the number of iterations required: '))  # Number of iterations for each size and case
     x = int(input('Enter the range of sizes of cost matrix needed, multiples of 5: '))
-    sizes = [50]  # Vary the cost matrix sizes as needed
+    sizes = [i for i in range(5, x+1, 5)]  # Vary the cost matrix sizes as needed
     cases = ["best", "average", "worst"]
 
     for case_type in cases:
