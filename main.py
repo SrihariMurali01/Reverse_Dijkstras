@@ -3,6 +3,10 @@ import random
 import matplotlib.pyplot as plt
 from Runner import Runner
 from tqdm import tqdm
+import os
+
+# # Set OMP_NUM_THREADS to no. of cpu threads available in the system - enables multiprocessing for numpy arrays
+# os.environ["OMP_NUM_THREADS"] = str(os.cpu_count())
 
 
 # Algorithm implementation (replace with your implementation)
@@ -30,7 +34,7 @@ def generate_cost_matrix(size, case_type):
 def main():
     iterations = int(input('Enter the number of iterations required: '))  # Number of iterations for each size and case
     x = int(input('Enter the range of sizes of cost matrix needed, multiples of 5: '))
-    sizes = [i for i in range(5, x+1, 5)]  # Vary the cost matrix sizes as needed
+    sizes = [50]  # Vary the cost matrix sizes as needed
     cases = ["best", "average", "worst"]
 
     for case_type in cases:

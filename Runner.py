@@ -1,21 +1,22 @@
 import sys
+import numpy as np
 
 
 class Runner:
 
     def __init__(self, cost_matrix):
-        self.cost_matrix = cost_matrix
+        self.cost_matrix = np.array(cost_matrix)
 
     def find_shortest_path(self, source, destination):
 
         # Check if source and destination nodes are within valid range
-        if source < 0 or source >= len(self.cost_matrix) or destination < 0 or destination >= len(self.cost_matrix):
+        if source < 0 or source >= self.cost_matrix.shape[0] or destination < 0 or destination >= self.cost_matrix.shape[0]:
             return [None, None]  # Return a special value to indicate invalid input
 
-        num_nodes = len(self.cost_matrix)
-        visited = [False] * num_nodes
-        shortest_distance = [sys.maxsize] * num_nodes
-        shortest_path = [[] for _ in range(num_nodes)]
+        num_nodes = self.cost_matrix.shape[0]
+        visited = np.full(num_nodes, False)
+        shortest_distance = np.full(num_nodes, sys.maxsize, dtype=np.int64)
+        shortest_path = np.empty((num_nodes,), dtype=object)
 
         shortest_distance[destination] = 0
         shortest_path[destination] = [destination]
@@ -35,11 +36,11 @@ class Runner:
 
             for prev_node in range(num_nodes):
                 if self.cost_matrix[prev_node][current_node] > 0:  # Can be commented for negative-weighted graphs only.
-                    new_distance = shortest_distance[current_node] + self.cost_matrix[prev_node][current_node]
+                    new_distance = np.add(shortest_distance[current_node], self.cost_matrix[prev_node][current_node])
                     if new_distance < shortest_distance[prev_node]:
                         shortest_distance[prev_node] = new_distance
-                        shortest_path[prev_node] = shortest_path[current_node] + [prev_node]
-        if shortest_path[source] == [] and shortest_distance[source] == sys.maxsize:
+                        shortest_path[prev_node] = np.add(shortest_path[current_node], [prev_node])
+        if shortest_path[source] is None and shortest_distance[source] == sys.maxsize:
             return [None, None]
         return [shortest_path[source][::-1], shortest_distance[source]]
         # Can also be used to return the shortest path from other nodes to destination node also
