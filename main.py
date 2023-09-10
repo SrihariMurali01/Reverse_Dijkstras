@@ -5,8 +5,8 @@ from Runner import Runner
 from tqdm import tqdm
 import os
 
-# # Set OMP_NUM_THREADS to no. of cpu threads available in the system - enables multiprocessing for numpy arrays
-# os.environ["OMP_NUM_THREADS"] = str(os.cpu_count())
+# Set OMP_NUM_THREADS to no. of cpu threads available in the system - enables multiprocessing for numpy arrays
+os.environ["OMP_NUM_THREADS"] = str(os.cpu_count())
 
 
 # Algorithm implementation (replace with your implementation)
