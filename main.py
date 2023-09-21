@@ -9,8 +9,6 @@ import os
 os.environ["OMP_NUM_THREADS"] = str(os.cpu_count())
 
 
-# Algorithm implementation (replace with your implementation)
-
 def find_shortest_path(cost_matrix, source, destination):
     # Generate random cost matrix for worst, average, and best cases
     ob = Runner(cost_matrix)
